@@ -9,9 +9,18 @@
 % \input{headers/bibliography}
 \input{headers/drawings}
 \input{headers/ic8pin}
+\input{headers/fulladder}
 % \input{headers/fancy}
 
 \begin{document}
 \maketitle
+
+\begin{center}
+\begin{circuitikz}
+\draw (0,0) node[full adder] (IC1) {};
+\draw (3,0) node[full adder] (IC2) {};
+\draw (IC1.k) to ++(0.75,0) |- (IC2.c);
+\end{circuitikz}
+\end{center}
 
 \end{document}
