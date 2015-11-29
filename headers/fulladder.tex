@@ -18,10 +18,10 @@
   \anchor{a}{\icping}
 
   \foregroundpath{                                                              % border and pin numbers are drawn here
-    \pgfsetlinewidth{0.05cm}
+    \pgfsetlinewidth{2\pgflinewidth}
     \pgfpathrectanglecorners{\pgfpoint{1cm}{.625cm}}{\pgfpoint{-1cm}{-.625cm}}
     \pgfusepath{draw}                                                           %draw rectangle
-    \pgfsetlinewidth{0.03cm}
+    \pgfsetlinewidth{0.5\pgflinewidth}
     \pgfmoveto{\pgfpoint{-1cm}{-.25cm}}
     \pgfpatharc{-90}{90}{.25cm}
     \pgfusepath{draw}                                                           %draw semicircle
