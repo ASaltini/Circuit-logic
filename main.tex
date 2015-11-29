@@ -19,7 +19,10 @@
 \begin{circuitikz}
 \draw (0,0) node[full adder] (IC1) {};
 \draw (3,0) node[full adder] (IC2) {};
-\draw (IC1.k) to ++(0.75,0) |- (IC2.c);
+\path let \p1 = (IC1.c), \p2 = (IC2.k) in
+  coordinate (m1) at (0.5*\x1+0.5*\x2,\y2-5mm)
+  coordinate (m2) at (0.5*\x1+0.5*\x2,\y1+5mm);
+\draw (IC1.c) |- (m2) -- (m1) -| (IC2.k);
 \end{circuitikz}
 \end{center}
 

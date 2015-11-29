@@ -4,28 +4,32 @@
   \anchor{text} % this is used to center the text in the node
   {\pgfpoint{-.5\wd\pgfnodeparttextbox}{-.5\ht\pgfnodeparttextbox}}
 
-  \savedanchor\icpina{\pgfpoint{-0.625cm}{-0.66cm}} % pin 1
-  \anchor{c}{\icpina}
-  \savedanchor\icpinb{\pgfpoint{-0.625cm}{0cm}} % pin 2
-  \anchor{b}{\icpinb}
-  \savedanchor\icpinc{\pgfpoint{-0.625cm}{0.66cm}} % pin 3
-  \anchor{a}{\icpinc}
-  \savedanchor\icpinf{\pgfpoint{0.625cm}{-0.66cm}} % pin 6
-  \anchor{s}{\icpinf}
-  \savedanchor\icping{\pgfpoint{0.625cm}{0cm}} % pin 7
-  \anchor{k}{\icping}
+  \savedanchor\icpina{\pgfpoint{-.66cm}{-.625cm}}                               % pin 1
+  \anchor{k}{\icpina}
+%  \savedanchor\icpinb{\pgfpoint{0cm}{-.625cm}}                                  % pin 2
+%  \anchor{p2}{\icpinb}
+  \savedanchor\icpinc{\pgfpoint{.66cm}{-.625cm}}                                % pin 3
+  \anchor{s}{\icpinc}
+  \savedanchor\icpine{\pgfpoint{.66cm}{.625cm}}                                 % pin 5
+  \anchor{c}{\icpine}
+  \savedanchor\icpinf{\pgfpoint{0cm}{.625cm}}                                   % pin 6
+  \anchor{b}{\icpinf}
+  \savedanchor\icping{\pgfpoint{-.66cm}{.625cm}}                                % pin 7
+  \anchor{a}{\icping}
 
-  \foregroundpath{ % border and pin numbers are drawn here
+  \foregroundpath{                                                              % border and pin numbers are drawn here
     \pgfsetlinewidth{0.05cm}
-    \pgfpathrectanglecorners{\pgfpoint{0.625cm}{1cm}}{\pgfpoint{-0.625cm}{-1cm}}
-    \pgfusepath{draw} %draw rectangle
+    \pgfpathrectanglecorners{\pgfpoint{1cm}{.625cm}}{\pgfpoint{-1cm}{-.625cm}}
+    \pgfusepath{draw}                                                           %draw rectangle
     \pgfsetlinewidth{0.03cm}
-    \pgfmoveto{\pgfpoint{-0.3cm}{1cm}}
-    \pgfpatharc{180}{360}{.3cm}
-    \pgfusepath{draw} %draw semicircle
-    \pgftext[left,at={\pgfpoint{-0.55cm}{-0.66cm}}]{\(c\)}
-    \pgftext[left,at={\pgfpoint{-0.55cm}{0cm}}]{\(b\)}
-    \pgftext[left,at={\pgfpoint{-0.55cm}{0.66cm}}]{\(a\)}
-    \pgftext[right,at={\pgfpoint{0.55cm}{-0.66cm}}]{\(s\)}
-    \pgftext[right,at={\pgfpoint{0.55cm}{0cm}}]{\(k\)}
-}}
+    \pgfmoveto{\pgfpoint{-1cm}{-.3cm}}
+    \pgfpatharc{-90}{90}{.3cm}
+    \pgfusepath{draw}                                                           %draw semicircle
+    \pgftext[bottom,at={\pgfpoint{-.66cm}{-.55cm}}]{\(k\)\vphantom{A}}
+    %\pgftext[bottom,at={\pgfpoint{0cm}{-.55cm}}]{\scriptsize 2}
+    \pgftext[bottom,at={\pgfpoint{.66cm}{-.55cm}}]{\(s\)\vphantom{A}}
+    \pgftext[top,at={\pgfpoint{.66cm}{.55cm}}]{\(c\)\vphantom{A}}
+    \pgftext[top,at={\pgfpoint{0cm}{.55cm}}]{\(b\)\vphantom{A}}
+    \pgftext[top,at={\pgfpoint{-.66cm}{.55cm}}]{\(a\)\vphantom{A}}
+  }
+}
