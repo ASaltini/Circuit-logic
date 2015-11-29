@@ -17,12 +17,20 @@
 
 \begin{center}
 \begin{circuitikz}
-\draw (0,0) node[full adder] (IC1) {};
-\draw (3,0) node[full adder] (IC2) {};
-\path let \p1 = (IC1.c), \p2 = (IC2.k) in
-  coordinate (m1) at (0.5*\x1+0.5*\x2,\y2-5mm)
-  coordinate (m2) at (0.5*\x1+0.5*\x2,\y1+5mm);
-\draw (IC1.c) |- (m2) -- (m1) -| (IC2.k);
+  \foreach \i in {0,...,3} {
+    \draw (-3*\i,0) node[full adder] (IC\i) {}
+          (IC\i.a) to ++(0,8mm) node[above]{\(a_\i\)}
+          (IC\i.b) to ++(0,8mm) node[above]{\(b_\i\)}
+          (IC\i.s) to ++(0,-8mm) node[below]{\(s_\i\)};
+  }
+  \draw (IC0.c) |- ++(10mm,8mm) node[right]{\(c_\mathrm{in}\)}
+        (IC3.k) |- ++(-10mm,-8mm) node[left]{\(c_\mathrm{out}\)};
+  \foreach \i [count=\j] in {0,...,2} {
+    \path let \p1 = (IC\j.c), \p2 = (IC\i.k) in
+      coordinate (m1) at (0.5*\x1+0.5*\x2,\y2-5mm)
+      coordinate (m2) at (0.5*\x1+0.5*\x2,\y1+5mm);
+    \draw (IC\j.c) |- (m2) -- (m1) -| (IC\i.k);
+  }
 \end{circuitikz}
 \end{center}
 
