@@ -10,6 +10,7 @@
 \input{headers/drawings}
 \input{headers/ic8pin}
 \input{headers/fulladder}
+\input{headers/halfadder}
 % \input{headers/fancy}
 
 \begin{document}
@@ -33,6 +34,24 @@
       coordinate (m2) at (0.5*\x1+0.5*\x2,\y1+5mm);
     \draw (IC\j.c) |- (m2) -- (m1) -| (IC\i.k);
   }
+\end{circuitikz}
+\end{center}
+
+\begin{center}
+\begin{circuitikz}
+  \draw (0,0) node[half adder] (IC1) {}
+        (2,-0.56) node[half adder] (IC2) {}
+        (5,0) node[european or port] (IC3) {};
+  \path let \p1 = (IC3.out), \p2 = (IC2.s) in coordinate (sout) at (\x1,\y2);
+\path let \p1 = (IC1.a), \p2 = (IC2.b) in coordinate (cin) at (\x1-5mm,\y2);
+  \draw (IC1.k) -- (IC3.in 1)
+        (IC2.k) -- (IC3.in 2)
+        (IC1.s) -- (IC2.a)
+        (IC2.s) -- (sout) node[right]{\(s\)}
+        node[right] at (IC3.out) {\(c_\mathrm{out}\)}
+        (IC1.a) -- ++(-5mm,0) node[left] {\(a\)}
+        (IC1.b) -- ++(-5mm,0) node[left] {\(b\)}
+        (IC2.b) -- (cin) node[left] {\(c_\mathrm{in}\)};
 \end{circuitikz}
 \end{center}
 

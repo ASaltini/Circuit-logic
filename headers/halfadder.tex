@@ -1,0 +1,29 @@
+\pgfdeclareshape{half adder}{
+  \anchor{center}{\pgfpointorigin} % within the node, (0,0) is the center
+
+  \anchor{text} % this is used to center the text in the node
+  {\pgfpoint{-.5\wd\pgfnodeparttextbox}{-.5\ht\pgfnodeparttextbox}}
+
+  \savedanchor\icpina{\pgfpoint{-.625cm}{.28cm}}                                % pin 1
+  \anchor{a}{\icpina}
+  \savedanchor\icpinc{\pgfpoint{-.625cm}{-.28cm}}                               % pin 3
+  \anchor{b}{\icpinc}
+  \savedanchor\icpine{\pgfpoint{.625cm}{.28cm}}                                 % pin 5
+  \anchor{k}{\icpine}
+  \savedanchor\icping{\pgfpoint{.625cm}{-.28cm}}                                % pin 7
+  \anchor{s}{\icping}
+
+  \foregroundpath{                                                              % border and pin numbers are drawn here
+    \pgfsetlinewidth{0.05cm}
+    \pgfpathrectanglecorners{\pgfpoint{.625cm}{.56cm}}{\pgfpoint{-.625cm}{-.56cm}}
+    \pgfusepath{draw}                                                           %draw rectangle
+    \pgfsetlinewidth{0.03cm}
+    \pgfmoveto{\pgfpoint{-.25cm}{.56cm}}
+    \pgfpatharc{180}{360}{.25cm}
+    \pgfusepath{draw}                                                           %draw semicircle
+    \pgftext[left,at={\pgfpoint{-.55cm}{.28cm}}]{\(a\)}
+    \pgftext[left,at={\pgfpoint{-.55cm}{-.28cm}}]{\(b\)}
+    \pgftext[right,at={\pgfpoint{.55cm}{.28cm}}]{\(k\)}
+    \pgftext[right,at={\pgfpoint{.55cm}{-.28cm}}]{\(s\)}
+  }
+}
