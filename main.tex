@@ -17,15 +17,17 @@
 
 \begin{center}
 \begin{circuitikz}
-  \foreach \i in {0,...,3} {
+  \def\n{3} % number of bits minus one
+  \pgfmathsetmacro{\m}{\n-1}
+  \foreach \i in {0,...,\n} {
     \draw (-3*\i,0) node[full adder] (IC\i) {}
           (IC\i.a) to ++(0,8mm) node[above]{\(a_\i\)}
           (IC\i.b) to ++(0,8mm) node[above]{\(b_\i\)}
           (IC\i.s) to ++(0,-8mm) node[below]{\(s_\i\)};
   }
-  \draw (IC0.c) |- ++(10mm,8mm) node[right]{\(c_\mathrm{in}\)}
-        (IC3.k) |- ++(-10mm,-8mm) node[left]{\(c_\mathrm{out}\)};
-  \foreach \i [count=\j] in {0,...,2} {
+  \draw (IC0.c) |- ++(10mm,5mm) node[right]{\(c_\mathrm{in}\)}
+        (IC\n.k) |- ++(-10mm,-5mm) node[left]{\(c_\mathrm{out}\)};
+  \foreach \i [count=\j] in {0,...,\m} {
     \path let \p1 = (IC\j.c), \p2 = (IC\i.k) in
       coordinate (m1) at (0.5*\x1+0.5*\x2,\y2-5mm)
       coordinate (m2) at (0.5*\x1+0.5*\x2,\y1+5mm);
